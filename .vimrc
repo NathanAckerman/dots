@@ -13,7 +13,7 @@ Plugin 'tpope/vim-fugitive' "git plugin
 Plugin 'scrooloose/nerdtree' "file free
 Plugin 'ctrlpvim/ctrlp.vim' "fuzzy search for files
 let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
+let g:ctrlp_switch_buffer = 0 "make ctrl-p open files in new tab
 let g:ctrlp_working_path_mode = 0
 
 Plugin 'terryma/vim-multiple-cursors' "mult-cursors like in sublime
@@ -23,7 +23,7 @@ Plugin 'vim-airline/vim-airline-themes' "themes for status line
 let g:airline#extensions#tabline#enabled = 1 "enable smart tab for airline
 
 Plugin 'vim-syntastic/syntastic' "syntax checking
-Plugin 'honza/vim-snippets' "tons of useful snippets
+Plugin 'honza/vim-snippets' "tons of useful snippets for ultisnips(and snipmate)
 
 Plugin 'valloric/youcompleteme' "autocomplete, needs external ycm
 
@@ -44,6 +44,27 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "look into surround.vim, nerd commenter, tagbar, gundo.vim
 
+"key remappings
+"open .vimrc for editing with ,ev
+nnoremap <leader>ev :split $MYVIMRC<cr>
+"resource the .vimrc while in vim
+nnoremap <leader>sv :source $MYVIMRC<cr>
+"make NERDTree easier to use with F7
+nnoremap <F7> :NERDTreeToggle<CR>
+"set key for unhighlighting search results
+nnoremap <leader><space> :nohlsearch<CR> 
+"set ctrl-D to delete current line in insert mode
+inoremap <c-d> <esc>ddi
+"put parentheses around current word
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+"remap H key hardly used to first nonblank char in line
+nnoremap H ^
+"remap L key hardly used to last nonblank char in line
+nnoremap L $
+"remap dw to bdw to go to beginning of word first
+nnoremap dw bdw
+"remap ctrl-c in visual mode to copy text (also to clipboard)
+vnoremap <C-c> "+y
 
 
 colorscheme delek "backup default colorscheme
@@ -52,6 +73,9 @@ colorscheme molokai
 catch
 endtry
 
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+set clipboard=unnamed "needed for copying to system clipboard
 set visualbell "no sounds
 syntax enable 
 set autoread "make vim see changes made to file from outside vim
@@ -60,12 +84,10 @@ set encoding=utf-8
 "set noswapfile
 "set nobackup
 "set nowb
-
+set backspace=indent,eol,start "make backspace work like it should
 set laststatus=2 "keep statusbar shown
 set incsearch  " Find the next match as we type the search
 set hlsearch   " Highlight searches by default
-"set key for unhighlighting search results
-nnoremap <leader><space> :nohlsearch<CR> 
 set ignorecase " Ignore case when searching...
 set smartcase  " ...unless we type a capital
 
@@ -75,7 +97,7 @@ set autoindent
 set smartindent
 set smarttab
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set scrolloff=8         "Start scrolling when it's 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
