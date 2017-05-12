@@ -15,6 +15,9 @@ Plugin 'tpope/vim-fugitive' "git plugin
 Plugin 'scrooloose/nerdtree' "file free
 Plugin 'scrooloose/nerdcommenter' "functions for commenting
 
+Plugin 'easymotion/vim-easymotion' "move to things faster
+map <Leader> <Plug>(easymotion-prefix)
+
 Plugin 'ctrlpvim/ctrlp.vim' "fuzzy search for files
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0 "make ctrl-p open files in new tab
@@ -26,17 +29,17 @@ Plugin 'vim-airline/vim-airline' "status line at bottom
 Plugin 'vim-airline/vim-airline-themes' "themes for status line
 let g:airline#extensions#tabline#enabled = 1 "enable smart tab for airline
 let g:airline#extensions#tabline#fnamemod = ':t' "show only the filename
-"let g:airline_theme='base16'
+let g:airline_theme='base16'
 "Plugin 'bling/vim-bufferline' "dont need because of upper line
 
 Plugin 'vim-syntastic/syntastic' "syntax checking
 
 Plugin 'honza/vim-snippets' "tons of useful snippets for ultisnips(and snipmate)
 
-Plugin 'valloric/youcompleteme' "autocomplete, needs external ycm
+Plugin 'valloric/youcompleteme' "autocomplete, needs external ycm installed
 
 Plugin 'valloric/vim-operator-highlight' "highlight + - / < etc
-"let g:ophigh_color = 226
+let g:ophigh_color = 111
 "let g:ophigh_color_gui = "#F6FF00"
 
 Plugin 'SirVer/ultisnips' "snippet framework
@@ -53,8 +56,8 @@ Plugin 'majutsushi/tagbar' "see the ctags for a file --needs ctags already insta
 
 Plugin 'chrisbra/Colorizer' "highlight hex color codes in their color
 "these arent working todo
-"nnoremap <C-S-C> :ColorHighlight<CR> 
-"nnoremap <C-S-U> :ColorClear<CR> 
+"nnoremap <C-S-C> :ColorHighlight<CR>
+"nnoremap <C-S-U> :ColorClear<CR>
 
 Plugin 'abudden/taghighlight-automirror'
 
@@ -69,6 +72,8 @@ filetype plugin indent on    " required
 
 
 "key remappings
+"remap : to ; for easier use
+nnoremap ; :
 "open .vimrc for editing with ,ev
 nnoremap <leader>ev :split $MYVIMRC<cr>
 "resource the .vimrc while in vim
@@ -78,7 +83,7 @@ nnoremap <F7> :NERDTreeToggle<CR>
 "set key for unhighlighting search results
 nnoremap <leader><space> :nohlsearch<CR>
 "set ctrl-D to delete current line in insert mode would overwrite un-indent
-inoremap <c-d> <esc>ddi
+"inoremap <c-d> <esc>ddi
 "put parentheses around current word
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 "remap H key hardly used to first nonblank char in line
@@ -96,6 +101,14 @@ nnoremap <leader>t :TagbarToggle<CR>
 " move vertically by visual line for code that is wrapped
 nnoremap j gj
 nnoremap k gk
+"update the class files from the ctags for syntax highlighting
+nnoremap <c-@> :UpdateTypesFile<CR>
+"remap ctrl-s to save instead of lock needs the following commands in .bashrc
+"bind -r '\C-s'
+"stty -ixon
+nnoremap <c-s> :update<CR>
+inoremap <c-s> :update<CR>a
+
 
 
 "funciton to remove trailing whitespace from entire file
@@ -104,7 +117,7 @@ fun! TrimWhitespace()
 	%s/\s\+$//e
 	call winrestview(l:save)
 endfun
-nnoremap <leader>w :call TrimWhitespace()<CR>
+nnoremap <leader>W :call TrimWhitespace()<CR>
 
 "show the syntax group of word under cursor
 nnoremap <C-b> :call <SID>SynStack()<CR>
@@ -122,10 +135,10 @@ let java_highlight_functions = 1
 
 colorscheme delek "backup default colorscheme
 try "try my favorite colorscheme if it is installed
-"colorscheme base16-unikitty-dark
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
+colorscheme base16-unikitty-dark
+"colorscheme molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
 catch
 endtry
 
@@ -136,7 +149,7 @@ set visualbell "no sounds
 syntax enable
 set autoread "make vim see changes made to file from outside vim
 set number "set line numbers
-set encoding=utf-8
+"set encoding=utf-8
 set backspace=indent,eol,start "make backspace work like it should
 set laststatus=2 "keep statusbar shown
 set incsearch  " Find the next match as we type the search
@@ -147,6 +160,8 @@ set smartcase  " ...unless we type a capital
 set scrolloff=8         "Start scrolling when it's 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+"set colorcolumn=81 "make 81st column diff color
+"call matchadd('ColorColumn', '\%81v', 100) "only do offending collumns
 
 set lazyredraw "makes vim not redraw screen during macros and others
 
