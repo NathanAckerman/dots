@@ -244,6 +244,7 @@ if &t_Co > 255
 	   hi CTagsField      ctermfg=252
 	   hi CTagsClass      ctermfg=45
 	   hi CTagsMethod     ctermfg=252
+	   hi OperatorChars   ctermfg=197
 
        hi Normal       ctermfg=252 ctermbg=234
        hi CursorLine               ctermbg=236   cterm=none

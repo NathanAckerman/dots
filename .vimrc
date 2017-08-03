@@ -185,7 +185,7 @@ if has('mouse')
 	set mouse=a
 endif
 
-
+set linespace=5 "fix weird folding error on underscores
 
 
 
