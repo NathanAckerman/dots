@@ -142,3 +142,15 @@ alias matlab="/home/fname/mat/bin/./matlab -nodesktop"
 
 #make tab completion ignore case
 bind 'set completion-ignore-case on'
+
+# added by Anaconda3 installer
+export PATH="/home/fname/anaconda3/bin:$PATH"
+
+alias pitt="ssh nga5@unixs.cssd.pitt.edu"
+alias vm="nohup VBoxManage startvm C1 --type headless && ssh -p 3023 name@127.0.0.1"
+alias vm2="nohup VBoxManage startvm ServerBig --type headless && ssh -p 3023 name@127.0.0.1"
+alias vm3="nohup VBoxManage startvm HugeServer --type headless && ssh -p 3023 name@127.0.0.1"
+alias vm4="nohup VBoxManage startvm HugeServerPostCompile --type headless && ssh -p 3023 name@127.0.0.1"
+
+shopt -s nocasematch
+

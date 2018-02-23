@@ -33,7 +33,7 @@ let g:airline#extensions#tabline#fnamemod = ':t' "show only the filename
 "Plugin 'bling/vim-bufferline' "dont need because of upper line
 
 Plugin 'vim-syntastic/syntastic' "syntax checking
-
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 Plugin 'honza/vim-snippets' "tons of useful snippets for ultisnips(and snipmate)
 
 Plugin 'valloric/youcompleteme' "autocomplete, needs external ycm installed
@@ -179,7 +179,6 @@ set autoindent
 set smartindent
 set smarttab
 set shiftwidth=4
-
 
 if has('mouse')
 	set mouse=a
