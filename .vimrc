@@ -37,6 +37,8 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 Plugin 'honza/vim-snippets' "tons of useful snippets for ultisnips(and snipmate)
 
 Plugin 'valloric/youcompleteme' "autocomplete, needs external ycm installed
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 Plugin 'valloric/vim-operator-highlight' "highlight + - / < etc
 "let g:ophigh_color = 111 "for unikitty theme
@@ -173,12 +175,12 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-set tabstop=4  " make tabs 4 spaces
-set softtabstop=4 "tab needs to also be 4 when editing
+"set tabstop=4  " make tabs 4 spaces
+"set softtabstop=4 "tab needs to also be 4 when editing
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=4
+set shiftwidth=8
 
 if has('mouse')
 	set mouse=a

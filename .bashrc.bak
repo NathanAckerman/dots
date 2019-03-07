@@ -154,3 +154,14 @@ alias vm4="nohup VBoxManage startvm HugeServerPostCompile --type headless && ssh
 
 shopt -s nocasematch
 
+#export ARCH=arm
+#export PATH=${PATH}:/opt/toolchains/arm-eabi-4.6/bin
+#export CROSS_COMPILE=arm-eabi-
+alias v="vim"
+alias vpn="sudo vpnc pittvpn"
+alias vpnstop="sudo vpnc-disconnect"
+alias vpnedit="sudo vim /etc/vpnc/pittvpn.conf"
+
+alias py="python"
+#grep -rnw '/path/to/somewhere/' -e 'pattern'
+alias c="lex lexer.l && gcc -o lexer lex.yy.c -ll"
