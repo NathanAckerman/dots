@@ -128,6 +128,9 @@ TERM=xterm-256color
 
 ~/.config/base16-shell/scripts/base16-unikitty-dark.sh
 
+alias light="~/.config/base16-shell/scripts/base16-unikitty-light.sh"
+alias dark="~/.config/base16-shell/scripts/base16-unikitty-dark.sh"
+
 
 #needed to use ctrl-s in vim
 bind -r '\C-s'
@@ -146,7 +149,8 @@ bind 'set completion-ignore-case on'
 # added by Anaconda3 installer
 export PATH="/home/fname/anaconda3/bin:$PATH"
 
-alias pitt="ssh nga5@unixs.cssd.pitt.edu"
+alias unixs="ssh nga5@unixs.cssd.pitt.edu"
+alias thoth="ssh nga5@thoth.cs.pitt.edu"
 alias vm="nohup VBoxManage startvm C1 --type headless && ssh -p 3023 name@127.0.0.1"
 alias vm2="nohup VBoxManage startvm ServerBig --type headless && ssh -p 3023 name@127.0.0.1"
 alias vm3="nohup VBoxManage startvm HugeServer --type headless && ssh -p 3023 name@127.0.0.1"
@@ -154,14 +158,18 @@ alias vm4="nohup VBoxManage startvm HugeServerPostCompile --type headless && ssh
 
 shopt -s nocasematch
 
-#export ARCH=arm
-#export PATH=${PATH}:/opt/toolchains/arm-eabi-4.6/bin
-#export CROSS_COMPILE=arm-eabi-
 alias v="vim"
 alias vpn="sudo vpnc pittvpn"
 alias vpnstop="sudo vpnc-disconnect"
 alias vpnedit="sudo vim /etc/vpnc/pittvpn.conf"
 
 alias py="python"
-#grep -rnw '/path/to/somewhere/' -e 'pattern'
-alias c="lex lexer.l && gcc -o lexer lex.yy.c -ll"
+#export M5_PATH=/home/fname/sim/down/android_asimbench/asimbench_android_arm_kernel/
+export M5_PATH=/home/fname/sim/down/aarch-system-20180409/
+#export M5_PATH=/home/fname/sim/down/android_asimbench
+PATH=~/bin:$PATH
+
+
+export ARCH=arm
+export PATH=${PATH}:/opt/toolchains/arm-eabi-4.6/bin
+export CROSS_COMPILE=arm-eabi-
