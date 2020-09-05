@@ -47,7 +47,7 @@ let g:ophigh_color = 197 "for molokai theme
 
 Plugin 'SirVer/ultisnips' "snippet framework
 "needed to remap ultisnips keys to play well with youcompleteme
-let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -113,6 +113,10 @@ nnoremap <c-s> :update<CR>
 inoremap <c-s> <ESC>:update<CR>a
 
 
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 "funciton to remove trailing whitespace from entire file
 fun! TrimWhitespace()
@@ -181,6 +185,7 @@ set autoindent
 set smartindent
 set smarttab
 set shiftwidth=8
+set encoding=utf-8
 
 if has('mouse')
 	set mouse=a
