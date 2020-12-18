@@ -148,12 +148,18 @@ alias matlab="/home/fname/2750/matlab &"
 bind 'set completion-ignore-case on'
 shopt -s nocasematch
 
+alias elements="ssh nga5@elements.cs.pitt.edu"
+alias ritchie="ssh nga5@ritchie.cs.pitt.edu"
 alias unixs="ssh nga5@unixs.cssd.pitt.edu"
 alias thoth="ssh nga5@thoth.cs.pitt.edu"
 alias class3="ssh nga5@class3.cs.pitt.edu"
 alias linux="ssh nga5@linux.cs.pitt.edu"
-alias region="ssh we74ckzqhfix@107.180.47.17"
-alias regiondb="mysql -u we74ckzqhfix -p -h 107.180.47.17"
+alias godaddy="ssh we74ckzqhfix@107.180.47.17"
+alias regiongd="mysql -u we74ckzqhfix -p -h 107.180.47.17"
+alias regionh="mysql -u we74ckzqhfix -p -h 31.170.161.22"
+alias hostinger="ssh -p 65002 u978961200@31.170.161.22"
+alias dockerbomb="docker ps | awk 'FNR > 1 {print $1}' | xargs docker kill"
+
 
 alias vm="nohup VBoxManage startvm C1 --type headless && ssh -p 3023 name@127.0.0.1"
 alias vm2="nohup VBoxManage startvm ServerBig --type headless && ssh -p 3023 name@127.0.0.1"
